@@ -1,27 +1,28 @@
 <section class="d-flex justify-content-center">
   <section class="mt-5 w-50">
-    <form>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" placeholder="username">
+        <input type="text" class="form-control" id="username" formControlName="username" placeholder="username">
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="****">
+        <input type="password" class="form-control" id="password" formControlName="password" placeholder="****">
       </div>
       <div class="mb-3">
         <label for="fName" class="form-label">First Name</label>
-        <input type="text" class="form-control" id="fName" placeholder="first name">
+        <input type="text" class="form-control" id="fName" formControlName="fName" placeholder="first name">
       </div>
       <div class="mb-3">
         <label for="sName" class="form-label">Second Name</label>
-        <input type="text" class="form-control" id="sName" placeholder="second name">
+        <input type="text" class="form-control" id="sName" formControlName="sName" placeholder="second name">
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com">
       </div>
-      <button type="button" class="btn btn-primary">Add User</button>
+      <button type="submit" class="btn btn-primary" >Add User</button>
+      <!--<button type="button" class="btn btn-primary" (click)="test()">Test</button>-->
     </form>
   </section>
 </section>
