@@ -22,7 +22,7 @@
         <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com">
       </div>
       <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Add User</button>
-      <!--<button type="button" class="btn btn-primary" (click)="test()">Test</button>-->
+      <button type="button" class="btn btn-primary mx-2" (click)="updateUser()">Update User</button>
     </form>
   </section>
 </section>
@@ -46,15 +46,13 @@
       </tr>
 
       <tr *ngFor="let u of users">
-        <td><button class="btn btn-primary mx-2" (click)="deleteUser(u.id)"> Delete</button> <button class="btn btn-primary"> Edit</button></td>
+        <td><button class="btn btn-primary mx-2" (click)="deleteUser(u.id)"> Delete</button> <button class="btn btn-primary"  (click)="onEdit(u)"> Edit</button></td>
         <td>{{ u.id }}</td>
         <td>{{ u.username }}</td>
         <td>{{ u.fName }}</td>
         <td>{{ u.sName }}</td>
         <td>{{ u.email }}</td>
       </tr>
-
-
 
       </tbody>
     </table>
