@@ -14,6 +14,7 @@ import {NgForOf, NgIf} from '@angular/common';
 })
 export class UserComponent implements OnInit{
   users:any[]=[];
+  events:any[]=[];
   userForm: FormGroup;
 
   constructor(private fb:FormBuilder,private http:HttpClient) {
@@ -60,9 +61,20 @@ export class UserComponent implements OnInit{
       }
     )
   }
+  getAllEvents(){
+    this.http.get<any[]>('http://localhost:8080/api/v1/event/getAllEvent').subscribe(
+      (response)=>{
+        this.events=response;
+      },
+      (error)=>{
+        console.error('Error fetching users',error)
+      }
+    )
+  }
 
   ngOnInit(): void {
     this.getAllUsers();
+    this.getAllEvents();
   }
 
   deleteUser(userId:any) {
